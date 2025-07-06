@@ -3,6 +3,7 @@ import { resolve } from 'path';
 
 export default defineConfig({
   root: 'src',
+  base: '/goit-js-hw-09/',
   build: {
     rollupOptions: {
       input: {
@@ -14,5 +15,6 @@ export default defineConfig({
     outDir: '../dist',
   },
 });
+
 
 
