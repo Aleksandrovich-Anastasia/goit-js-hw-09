@@ -4,20 +4,29 @@ on:
   push:
     branches: [main]
 
+permissions:
+  contents: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.1
 
-      - name: Install and build 🔧
+    steps:
+      - name: Checkout репозиторій 🛎️
+        uses: actions/checkout@v4
+
+      - name: Встановлення Node.js 🔧
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Встановлення залежностей та збірка 🧱
         run: |
-          npm install
+          npm ci
           npm run build
 
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.0
+      - name: Деплой на GitHub Pages 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
           folder: dist

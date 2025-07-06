@@ -1,8 +1,7 @@
-// Імпорт бібліотеки SimpleLightbox та стилів
 import SimpleLightbox from 'simplelightbox/dist/simple-lightbox.esm.js';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-// Масив зображень
+
 const images = [
   {
     preview: 'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820__480.jpg',
@@ -51,10 +50,10 @@ const images = [
   },
 ];
 
-// Де буде галерея — знайти контейнер
+
 const galleryList = document.querySelector('.gallery');
 
-// Створити розмітку
+
 const galleryMarkup = images
   .map(
     ({ preview, original, description }) => `
@@ -71,10 +70,10 @@ const galleryMarkup = images
   )
   .join('');
 
-// Вставити розмітку в DOM
+
 galleryList.innerHTML = galleryMarkup;
 
-// Ініціалізація SimpleLightbox
+
 const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionPosition: 'bottom',
